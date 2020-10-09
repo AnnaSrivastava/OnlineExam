@@ -1,0 +1,22 @@
+{
+  "name": "onlineexamserver",
+  "version": "1.0.0",
+  "description": "Server For Online Exam Conductor & Checker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnnaSrivastava/OnlineExam.git"
+  },
+  "author": "Ananya Anushka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/AnnaSrivastava/OnlineExam/issues"
+  },
+  "homepage": "https://github.com/AnnaSrivastava/OnlineExam#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
