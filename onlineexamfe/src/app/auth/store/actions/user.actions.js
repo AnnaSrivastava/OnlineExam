@@ -1,6 +1,6 @@
 import history from '@history';
 import _ from '@lodash';
-import auth0Service from 'app/services/auth0Service';
+// import auth0Service from 'app/services/auth0Service';
 import firebaseService from 'app/services/firebaseService';
 import jwtService from 'app/services/jwtService';
 import * as MessageActions from 'app/store/actions/fuse/message.actions';
@@ -174,7 +174,7 @@ export function logoutUser() {
 				break;
 			}
 			case 'auth0': {
-				auth0Service.logout();
+			//	auth0Service.logout();
 				break;
 			}
 			default: {
@@ -212,17 +212,17 @@ function updateUserData(user, dispatch) {
 			break;
 		}
 		case 'auth0': {
-			auth0Service
-				.updateUserData({
-					settings: user.data.settings,
-					shortcuts: user.data.shortcuts
-				})
-				.then(() => {
-					dispatch(MessageActions.showMessage({ message: 'User data saved to auth0' }));
-				})
-				.catch(error => {
-					dispatch(MessageActions.showMessage({ message: error.message }));
-				});
+			// auth0Service
+			// 	.updateUserData({
+			// 		settings: user.data.settings,
+			// 		shortcuts: user.data.shortcuts
+			// 	})
+			// 	.then(() => {
+			// 		dispatch(MessageActions.showMessage({ message: 'User data saved to auth0' }));
+			// 	})
+			// 	.catch(error => {
+			// 		dispatch(MessageActions.showMessage({ message: error.message }));
+			// 	});
 			break;
 		}
 		default: {

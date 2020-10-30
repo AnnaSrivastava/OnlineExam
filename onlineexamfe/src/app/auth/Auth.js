@@ -1,8 +1,8 @@
 import FuseSplashScreen from '@fuse/core/FuseSplashScreen';
 import * as userActions from 'app/auth/store/actions';
-import auth0Service from 'app/services/auth0Service';
-import firebaseService from 'app/services/firebaseService';
-import jwtService from 'app/services/jwtService';
+// import auth0Service from 'app/services/auth0Service';
+// import firebaseService from 'app/services/firebaseService';
+// import jwtService from 'app/services/jwtService';
 import * as Actions from 'app/store/actions';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -24,111 +24,111 @@ class Auth extends Component {
 		});
 	}
 
-	jwtCheck = () =>
-		new Promise(resolve => {
-			jwtService.on('onAutoLogin', () => {
-				this.props.showMessage({ message: 'Logging in with JWT' });
+	// jwtCheck = () =>
+	// 	new Promise(resolve => {
+	// 		jwtService.on('onAutoLogin', () => {
+	// 			this.props.showMessage({ message: 'Logging in with JWT' });
 
-				/**
-				 * Sign in and retrieve user data from Api
-				 */
-				jwtService
-					.signInWithToken()
-					.then(user => {
-						this.props.setUserData(user);
+	// 			/**
+	// 			 * Sign in and retrieve user data from Api
+	// 			 */
+	// 			jwtService
+	// 				.signInWithToken()
+	// 				.then(user => {
+	// 					this.props.setUserData(user);
 
-						resolve();
+	// 					resolve();
 
-						this.props.showMessage({ message: 'Logged in with JWT' });
-					})
-					.catch(error => {
-						this.props.showMessage({ message: error });
+	// 					this.props.showMessage({ message: 'Logged in with JWT' });
+	// 				})
+	// 				.catch(error => {
+	// 					this.props.showMessage({ message: error });
 
-						resolve();
-					});
-			});
+	// 					resolve();
+	// 				});
+	// 		});
 
-			jwtService.on('onAutoLogout', message => {
-				if (message) {
-					this.props.showMessage({ message });
-				}
+	// 		jwtService.on('onAutoLogout', message => {
+	// 			if (message) {
+	// 				this.props.showMessage({ message });
+	// 			}
 
-				this.props.logout();
+	// 			this.props.logout();
 
-				resolve();
-			});
+	// 			resolve();
+	// 		});
 
-			jwtService.on('onNoAccessToken', () => {
-				resolve();
-			});
+	// 		jwtService.on('onNoAccessToken', () => {
+	// 			resolve();
+	// 		});
 
-			jwtService.init();
+	// 		jwtService.init();
 
-			return Promise.resolve();
-		});
+	// 		return Promise.resolve();
+	// 	});
 
-	auth0Check = () =>
-		new Promise(resolve => {
-			auth0Service.init(success => {
-				if (!success) {
-					resolve();
-				}
-			});
+	// auth0Check = () =>
+	// 	new Promise(resolve => {
+	// 		auth0Service.init(success => {
+	// 			if (!success) {
+	// 				resolve();
+	// 			}
+	// 		});
 
-			if (auth0Service.isAuthenticated()) {
-				this.props.showMessage({ message: 'Logging in with Auth0' });
+	// 		if (auth0Service.isAuthenticated()) {
+	// 			this.props.showMessage({ message: 'Logging in with Auth0' });
 
-				/**
-				 * Retrieve user data from Auth0
-				 */
-				auth0Service.getUserData().then(tokenData => {
-					this.props.setUserDataAuth0(tokenData);
+	// 			/**
+	// 			 * Retrieve user data from Auth0
+	// 			 */
+	// 			auth0Service.getUserData().then(tokenData => {
+	// 				this.props.setUserDataAuth0(tokenData);
 
-					resolve();
+	// 				resolve();
 
-					this.props.showMessage({ message: 'Logged in with Auth0' });
-				});
-			} else {
-				resolve();
-			}
+	// 				this.props.showMessage({ message: 'Logged in with Auth0' });
+	// 			});
+	// 		} else {
+	// 			resolve();
+	// 		}
 
-			return Promise.resolve();
-		});
+	// 		return Promise.resolve();
+	// 	});
 
-	firebaseCheck = () =>
-		new Promise(resolve => {
-			firebaseService.init(success => {
-				if (!success) {
-					resolve();
-				}
-			});
+	// firebaseCheck = () =>
+	// 	new Promise(resolve => {
+	// 		firebaseService.init(success => {
+	// 			if (!success) {
+	// 				resolve();
+	// 			}
+	// 		});
 
-			firebaseService.onAuthStateChanged(authUser => {
-				if (authUser) {
-					this.props.showMessage({ message: 'Logging in with Firebase' });
+	// 		firebaseService.onAuthStateChanged(authUser => {
+	// 			if (authUser) {
+	// 				this.props.showMessage({ message: 'Logging in with Firebase' });
 
-					/**
-					 * Retrieve user data from Firebase
-					 */
-					firebaseService.getUserData(authUser.uid).then(
-						user => {
-							this.props.setUserDataFirebase(user, authUser);
+	// 				/**
+	// 				 * Retrieve user data from Firebase
+	// 				 */
+	// 				firebaseService.getUserData(authUser.uid).then(
+	// 					user => {
+	// 						this.props.setUserDataFirebase(user, authUser);
 
-							resolve();
+	// 						resolve();
 
-							this.props.showMessage({ message: 'Logged in with Firebase' });
-						},
-						error => {
-							resolve();
-						}
-					);
-				} else {
-					resolve();
-				}
-			});
+	// 						this.props.showMessage({ message: 'Logged in with Firebase' });
+	// 					},
+	// 					error => {
+	// 						resolve();
+	// 					}
+	// 				);
+	// 			} else {
+	// 				resolve();
+	// 			}
+	// 		});
 
-			return Promise.resolve();
-		});
+	// 		return Promise.resolve();
+	// 	});
 
 	render() {
 		return this.state.waitAuthCheck ? <FuseSplashScreen /> : <>{this.props.children}</>;

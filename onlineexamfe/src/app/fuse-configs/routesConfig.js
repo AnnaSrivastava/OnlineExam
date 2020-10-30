@@ -1,15 +1,15 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import FuseUtils from '@fuse/utils';
-import ExampleConfig from 'app/main/example/ExampleConfig';
+import ECommerceAppConfig from 'app/main/product/ECommerceAppConfig';
 
-const routeConfigs = [ExampleConfig];
+const routeConfigs = [ECommerceAppConfig];
 
 const routes = [
 	...FuseUtils.generateRoutesFromConfigs(routeConfigs),
 	{
 		path: '/',
-		component: () => <Redirect to="/example" />
+		component: () => <Redirect to="/question/new" />
 	}
 ];
 

@@ -11,7 +11,7 @@ import { useSelector } from 'react-redux';
 import { renderRoutes } from 'react-router-config';
 import FooterLayout3 from './components/FooterLayout3';
 // import LeftSideLayout3 from './components/LeftSideLayout3';
-import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
+//import NavbarWrapperLayout3 from './components/NavbarWrapperLayout3';
 import RightSideLayout3 from './components/RightSideLayout3';
 import ToolbarLayout3 from './components/ToolbarLayout3';
 
@@ -79,7 +79,7 @@ function Layout3(props) {
 					<div className="flex flex-1 flex-col overflow-hidden relative">
 						{/*{config.toolbar.display && config.toolbar.position === 'above' && <ToolbarLayout3 />}*/}
 
-						{config.navbar.display && <NavbarWrapperLayout3 />}
+						{/*{config.navbar.display && <NavbarWrapperLayout3 />}*/}
 
 						{config.toolbar.display && config.toolbar.position === 'below' && <ToolbarLayout3 />}
 
