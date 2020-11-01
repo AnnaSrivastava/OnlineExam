@@ -3,7 +3,6 @@ import { useCallback, useState } from 'react';
 
 function useForm(initialState, onSubmit) {
 	const [form, setForm] = useState(initialState);
-
 	const handleChange = useCallback(event => {
 		event.persist();
 		setForm(_form =>
