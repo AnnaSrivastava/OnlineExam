@@ -18,17 +18,22 @@ app.listen(
 );
 app.post("/wordcount", (req, res) => {
 	const {answer} = req.body;
-	let words = [];
+	let wordsList = [], ignoreList=["the","a","an","and",
+	"it","his","with","to",
+	"of","is","was","","by","then","them","he","she"];
 	let j = 0;
 	for (let i = 0; i <= answer.length; i++) {
 	 	if (answer.charAt(i) == " " 
 	 		|| answer.charAt(i)=="." 
-	 		|| answer.charAt(i)==",") {
-	 		words.push(answer.slice(j,i));
+	 		|| answer.charAt(i)==","
+	 		|| i==answer.length) {
+	 		let word = answer.slice(j,i)
+	 	if(ignoreList.find(item => item == word.toLowerCase())===undefined  )
+	 		{	wordsList.push(word); }
 	 		j=i+1;
 	 	}
 	 }
-	return res.status(200).json(words);
+	return res.status(200).json(wordsList);
 });
 //logging
 if (process.env.NODE_ENV === "development") {
