@@ -1,10 +1,4 @@
-import Chip from '@material-ui/core/Chip';
-import MenuItem from '@material-ui/core/MenuItem';
-import Paper from '@material-ui/core/Paper';
-import { makeStyles } from '@material-ui/core/styles';
-import { emphasize } from '@material-ui/core/styles/colorManipulator';
-import TextField from '@material-ui/core/TextField';
-import Typography from '@material-ui/core/Typography';
+import { Chip, MenuItem, Paper, makeStyles, emphasize, TextField, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import React from 'react';
 import Select from 'react-select';
@@ -106,11 +100,11 @@ function inputComponent({ inputRef, ...props }) {
 
 function Control(props) {
 	const classes = useStyles();
-
+	console.log(props);
 	return (
 		<TextField
 			fullWidth
-			className={clsx(classes.root, props.selectProps.textFieldProps.variant)}
+			className={clsx(classes.root, props.selectProps)}
 			required={props.selectProps.required}
 			error={props.selectProps.error}
 			InputProps={{
@@ -175,14 +169,14 @@ function MultiValue(props) {
 	return (
 		<Chip
 			tabIndex={-1}
-			label={props.children}
-			className={clsx(
-				classes.chip,
-				{
-					[classes.chipFocused]: props.isFocused
-				},
-				props.data.class
-			)}
+			//label={props.children}
+			//className={clsx(
+				//classes.chip,
+				// {
+				// 	[classes.chipFocused]: props.isFocused
+				// },
+				//props.data.class
+			//)}
 			onDelete={event => {
 				props.removeProps.onClick();
 				props.removeProps.onMouseDown(event);
@@ -221,6 +215,8 @@ function FuseChipSelect(props) {
 			props.onChange(value);
 		}
 	};
+
+	console.log(props);
 
 	return props.variant === 'fixed' ? (
 		<Select classNamePrefix="fuse-chip-select" {...props} components={components} onChange={handleOnChange} />

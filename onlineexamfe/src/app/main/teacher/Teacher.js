@@ -1,8 +1,8 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
-// import FuseChipSelect from '@fuse/core/FuseChipSelect';
+import FuseChipSelect from '@fuse/core/FuseChipSelect';
 import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
-import { useDeepCompareEffect } from '@fuse/hooks';
+import { useDeepCompareEffect, useForm } from '@fuse/hooks';
 // import FuseUtils from '@fuse/utils';
 import Formsy from 'formsy-react';
 import _ from '@lodash';
@@ -11,7 +11,7 @@ import { orange } from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import { Tab, Tabs } from '@material-ui/core';
-import { TextFieldFormsy } from '@fuse/core/formsy';
+import { TextFieldFormsy, FuseChipSelectFormsy } from '@fuse/core/formsy';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
 // import clsx from 'clsx';
@@ -21,6 +21,7 @@ import { Link, useParams } from 'react-router-dom';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
+const tags = [{}];
 const useStyles = makeStyles(theme => ({
 	productImageFeaturedStar: {
 		position: 'absolute',
@@ -63,7 +64,7 @@ function Teacher(props) {
 
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
-	// const { form, handleChange, setForm } = useForm(null);
+	const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
 	const [isFormValid, setIsFormValid] = useState(false);
 
@@ -95,7 +96,7 @@ function Teacher(props) {
 	function enableButton() {
 		setIsFormValid(true);
 	}
-	// function handleChipChange(value, name) {
+	function handleChipChange(value, name) {
 	// 	setForm(
 	// 		_.set(
 	// 			{ ...form },
@@ -103,7 +104,7 @@ function Teacher(props) {
 	// 			value.map(item => item.value)
 	// 		)
 	// 	);
-	// }
+	 }
 
 	function setFeaturedImage(id) {
 		//	setForm(_.set({ ...form }, 'featuredImageId', id));
@@ -289,30 +290,31 @@ function Teacher(props) {
                                         disabled
 									/>
 
-										<FuseChipSelect
-									className="mt-8 mb-24"
-									value={form.categories.map(item => ({
-										value: item,
-										label: item
-									}))}
-									onChange={value => handleChipChange(value, 'categories')}
-									placeholder="Select multiple categories"
-									TextFieldFormsyProps={{
-										label: 'Categories',
-										InputLabelProps: {
-											shrink: true
-										},
-										variant: 'outlined'
-									}}
-									isMulti
-								/>
+								 {/*// 		<FuseChipSelectFormsy
+								// 	className="mt-8 mb-24"
+								// 	value={categories.map(item => ({
+								// 		value: item,
+								// 		label: item
+								// 	}))}
+								// 	onChange={value => handleChipChange(value, 'categories')}
+								// 	placeholder="Select multiple categories"
+								// 	TextFieldFormsyProps={{
+								// 		label: 'Categories',
+								// 		InputLabelProps: {
+								// 			shrink: true
+								// 		},
+								// 		variant: 'outlined'
+								// 	}}
+								// 	isMulti
+								// />  */}
 
 								<FuseChipSelect
-									className="mt-8 mb-16"
-									value={form.tags.map(item => ({
+									className="mt-8 mb-16 max-w-2xl"
+									value={tags.map(item => ({
 										value: item,
 										label: item
 									}))}
+									name = "Keywords"
 									onChange={value => handleChipChange(value, 'tags')}
 									placeholder="Select multiple tags"
 									TextFieldFormsyProps={{

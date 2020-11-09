@@ -7,14 +7,9 @@ const ECommerceAppConfig = {
 	},
 	routes: [
 		{
-			path: '/answer/:productId?',
-			// '/apps/e-commerce/products/:productId/:productHandle?',
-			component: React.lazy(() => import('./Teacher'))
-		},
-		{
 			path: '/question/:productId?',
 			// '/apps/e-commerce/products/:productId/:productHandle?',
-			component: React.lazy(() => import('./Product'))
+			component: React.lazy(() => import('./Student'))
 		}
 		// {
 		// 	path: '/apps/e-commerce/products',

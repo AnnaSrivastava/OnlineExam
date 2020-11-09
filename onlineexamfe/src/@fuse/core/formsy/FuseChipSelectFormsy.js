@@ -1,8 +1,6 @@
 import FuseChipSelect from '@fuse/core/FuseChipSelect';
 import _ from '@lodash';
-import FormControl from '@material-ui/core/FormControl';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import InputLabel from '@material-ui/core/InputLabel';
+import { FormControl, FormHelperText, InputLabel } from '@material-ui/core';
 import clsx from 'clsx';
 import { withFormsy } from 'formsy-react';
 import React from 'react';

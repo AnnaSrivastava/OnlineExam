@@ -11,11 +11,6 @@ const ECommerceAppConfig = {
 			// '/apps/e-commerce/products/:productId/:productHandle?',
 			component: React.lazy(() => import('./Teacher'))
 		}
-		{
-			path: '/question/:productId?',
-			// '/apps/e-commerce/products/:productId/:productHandle?',
-			component: React.lazy(() => import('./Product'))
-		}
 		// {
 		// 	path: '/apps/e-commerce/products',
 		// 	component: React.lazy(() => import('./products/Products'))
