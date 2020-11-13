@@ -100,7 +100,7 @@ function inputComponent({ inputRef, ...props }) {
 
 function Control(props) {
 	const classes = useStyles();
-	console.log(props);
+	//console.log(props);
 	return (
 		<TextField
 			fullWidth
@@ -169,14 +169,14 @@ function MultiValue(props) {
 	return (
 		<Chip
 			tabIndex={-1}
-			//label={props.children}
-			//className={clsx(
-				//classes.chip,
-				// {
-				// 	[classes.chipFocused]: props.isFocused
-				// },
-				//props.data.class
-			//)}
+			label={props.children}
+			className={clsx(
+				classes.chip,
+				 {
+				 	[classes.chipFocused]: props.isFocused
+				 },
+				props.data.class
+			)}
 			onDelete={event => {
 				props.removeProps.onClick();
 				props.removeProps.onMouseDown(event);
@@ -189,9 +189,10 @@ function Menu(props) {
 	const classes = useStyles();
 
 	return (
-		<Paper square className={classes.paper} {...props.innerProps}>
-			{props.children}
-		</Paper>
+		<div></div>
+		// <Paper square className={classes.paper} {...props.innerProps}>
+		// 	{props.children}
+		// </Paper>
 	);
 }
 
@@ -216,7 +217,7 @@ function FuseChipSelect(props) {
 		}
 	};
 
-	console.log(props);
+	//console.log(props);
 
 	return props.variant === 'fixed' ? (
 		<Select classNamePrefix="fuse-chip-select" {...props} components={components} onChange={handleOnChange} />

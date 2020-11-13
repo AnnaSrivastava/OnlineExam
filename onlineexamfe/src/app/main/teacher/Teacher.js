@@ -21,7 +21,7 @@ import { Link, useParams } from 'react-router-dom';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
-const tags = [{}];
+const tags = [];
 const useStyles = makeStyles(theme => ({
 	productImageFeaturedStar: {
 		position: 'absolute',
@@ -265,18 +265,18 @@ function Teacher(props) {
 									// 	variant="outlined"
 									// 	fullWidth
 									// />*/}
-                                    <TextFieldFormsy
-										className="mt-8 mb-16"
-										id="Required Keywords"
-										name="Required Keywords"
-										label="Required Keywords"
-										type="text"
-										value={product ? product.description : ""}
-										multiline
-										rows={3}
-										variant="outlined"
-										fullWidth
-									/>
+                                  {/*}   <TextFieldFormsy
+									// 	className="mt-8 mb-16"
+									// 	id="Required Keywords"
+									// 	name="Required Keywords"
+									// 	label="Required Keywords"
+									// 	type="text"
+									// 	value={product ? product.description : ""}
+									// 	multiline
+									// 	rows={3}
+									// 	variant="outlined"
+									// 	fullWidth
+									// /> */}
                                     <TextFieldFormsy
 										className="mt-8 mb-16"
 										id="Score"
@@ -307,16 +307,16 @@ function Teacher(props) {
 								// 	}}
 								// 	isMulti
 								// />  */}
-
-								<FuseChipSelect
-									className="mt-8 mb-16 max-w-2xl"
-									value={tags.map(item => ({
-										value: item,
-										label: item
-									}))}
+								<p className="mt-8 mb-16">Add Keywords</p>
+								<FuseChipSelectFormsy
+									className="max-w-2xl"
+									// value={tags.map(item => ({
+									// 	value: item,
+									// 	label: item
+									// }))}
 									name = "Keywords"
-									onChange={value => handleChipChange(value, 'tags')}
-									placeholder="Select multiple tags"
+									//options = {tags}
+									//onChange={value => handleChipChange(value, 'tags')}
 									TextFieldFormsyProps={{
 										label: 'Tags',
 										InputLabelProps: {

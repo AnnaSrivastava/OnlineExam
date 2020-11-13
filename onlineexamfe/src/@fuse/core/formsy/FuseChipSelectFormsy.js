@@ -37,6 +37,8 @@ function FuseChipSelectFormsy(props) {
 		} else {
 			props.setValue(val);
 		}
+		console.log(val);
+		//props.options = val;
 	}
 
 	return (
@@ -44,7 +46,7 @@ function FuseChipSelectFormsy(props) {
 			error={Boolean((!props.isPristine && props.showRequired) || errorMessage)}
 			className={clsx(
 				props.className,
-				'z-10',
+				'z-10',"mt-8 mb-16 max-w-2xl",
 				props.showRequired ? 'required' : '',
 				props.showError ? 'error' : null
 			)}
