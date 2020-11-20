@@ -1,4 +1,4 @@
-import { Chip, MenuItem, Paper, makeStyles, emphasize, TextField, Typography } from '@material-ui/core';
+import { Chip, MenuItem, makeStyles, emphasize, TextField, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import React from 'react';
 import Select from 'react-select';
@@ -186,7 +186,7 @@ function MultiValue(props) {
 }
 
 function Menu(props) {
-	const classes = useStyles();
+	//const classes = useStyles();
 
 	return (
 		<div></div>

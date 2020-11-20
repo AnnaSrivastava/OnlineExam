@@ -21,7 +21,6 @@ import { Link, useParams } from 'react-router-dom';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
-const keywordsList = [];
 const useStyles = makeStyles(theme => ({
 	productImageFeaturedStar: {
 		position: 'absolute',
@@ -64,6 +63,8 @@ function Teacher(props) {
 
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
+	const [keywordsList, setKeywordsList] = useState([]);
+
 	const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
 	const [isFormValid, setIsFormValid] = useState(false);
@@ -146,6 +147,10 @@ function Teacher(props) {
 		console.log(routeParams.productId);
 		return <FuseLoading />;
 	}
+	const onChangeList = (arr) => {
+		console.log(arr);
+		setKeywordsList(arr);
+	} 
 	console.log(keywordsList);
 	return (
 		<FusePageCarded
@@ -208,7 +213,8 @@ function Teacher(props) {
 							variant="contained"
 							color="secondary"
 							disabled={false}
-							onClick={() => dispatch(Actions.saveProduct(product))}
+							//onClick={() => dispatch(Actions.saveProduct(product))}
+							onClick={()=>console.log(keywordsList)}
 						>
 							Save
 						</Button>
@@ -312,7 +318,8 @@ function Teacher(props) {
 									// }))}
 									name = "Keywords"
 									options = {keywordsList}
-									onChange={value => handleChipChange(value)}
+									//onChange={value => handleChipChange(value)}
+									onChange = {onChangeList}
 									TextFieldFormsyProps={{
 										label: 'Tags',
 										InputLabelProps: {
