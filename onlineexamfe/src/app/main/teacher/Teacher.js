@@ -214,11 +214,7 @@ function Teacher(props) {
 							color="secondary"
 							disabled={false}
 							//onClick={() => dispatch(Actions.saveProduct(product))}
-<<<<<<< HEAD
-							onClick={()=>console.log(keywordsList)}
-=======
 							onClick={() => { alert('Saved Successfully!') }}
->>>>>>> keywords list
 						>
 							Save
 						</Button>
