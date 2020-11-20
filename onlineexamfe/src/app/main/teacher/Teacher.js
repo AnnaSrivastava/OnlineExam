@@ -318,8 +318,7 @@ function Teacher(props) {
 									// }))}
 									name = "Keywords"
 									options = {keywordsList}
-									//onChange={value => handleChipChange(value)}
-									onChange = {onChangeList}
+									onChange={value => handleChipChange(value)}
 									TextFieldFormsyProps={{
 										label: 'Tags',
 										InputLabelProps: {

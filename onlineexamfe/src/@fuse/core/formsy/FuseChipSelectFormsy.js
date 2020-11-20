@@ -37,11 +37,9 @@ function FuseChipSelectFormsy(props) {
 		} else {
 			props.setValue(val);
 		}
-		//importedProps.options.push(val[val.length-1].value);
-		importedProps.onChange(val);
+		//console.log(val);
+		console.log(importedProps);
 		importedProps.options = val;
-		console.log(val);
-		console.log(importedProps.options);
 	}
 
 	return (
