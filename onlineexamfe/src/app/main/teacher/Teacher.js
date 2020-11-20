@@ -21,7 +21,7 @@ import { Link, useParams } from 'react-router-dom';
 import * as Actions from './store/actions';
 import reducer from './store/reducers';
 
-const tags = [];
+const keywordsList = [];
 const useStyles = makeStyles(theme => ({
 	productImageFeaturedStar: {
 		position: 'absolute',
@@ -96,14 +96,10 @@ function Teacher(props) {
 	function enableButton() {
 		setIsFormValid(true);
 	}
-	function handleChipChange(value, name) {
-	// 	setForm(
-	// 		_.set(
-	// 			{ ...form },
-	// 			name,
-	// 			value.map(item => item.value)
-	// 		)
-	// 	);
+	function handleChipChange(value) {
+		console.log(value);
+		keywordsList.push(value);
+		console.log(keywordsList);
 	 }
 
 	function setFeaturedImage(id) {
@@ -150,7 +146,7 @@ function Teacher(props) {
 		console.log(routeParams.productId);
 		return <FuseLoading />;
 	}
-
+	console.log(keywordsList);
 	return (
 		<FusePageCarded
 			classes={{
@@ -315,8 +311,8 @@ function Teacher(props) {
 									// 	label: item
 									// }))}
 									name = "Keywords"
-									//options = {tags}
-									//onChange={value => handleChipChange(value, 'tags')}
+									options = {keywordsList}
+									onChange={value => handleChipChange(value)}
 									TextFieldFormsyProps={{
 										label: 'Tags',
 										InputLabelProps: {
