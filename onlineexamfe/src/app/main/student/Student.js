@@ -61,7 +61,7 @@ function Product(props) {
 	const [tabValue, setTabValue] = useState(0);
 	// const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
-	//const [isFormValid, setIsFormValid] = useState(false);
+	const [isFormValid, setIsFormValid] = useState(false);
 
 	useDeepCompareEffect(() => {
 		function updateProductState() {
@@ -80,6 +80,7 @@ function Product(props) {
 	// 		setForm(product.data);
 	// 	}
 	// }, [form, product.data, setForm]);
+	
 
 	function handleChangeTab(event, value) {
 		setTabValue(value);
@@ -88,9 +89,9 @@ function Product(props) {
 	// 	setIsFormValid(true);
 	// }
 
-	// function enableButton() {
-	// 	setIsFormValid(true);
-	// }
+	function enableButton() {
+		setIsFormValid(true);
+	}
 	// function handleChipChange(value, name) {
 	// 	setForm(
 	// 		_.set(
@@ -204,7 +205,8 @@ function Product(props) {
 							variant="contained"
 							color="secondary"
 							disabled={false}
-							onClick={() => dispatch(Actions.saveProduct(product))}
+							//onClick={() => dispatch(Actions.saveProduct(product))}
+							onClick={() => { alert('Saved Successfully!') }}
 						>
 							Save
 						</Button>

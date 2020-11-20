@@ -214,7 +214,11 @@ function Teacher(props) {
 							color="secondary"
 							disabled={false}
 							//onClick={() => dispatch(Actions.saveProduct(product))}
+<<<<<<< HEAD
 							onClick={()=>console.log(keywordsList)}
+=======
+							onClick={() => { alert('Saved Successfully!') }}
+>>>>>>> keywords list
 						>
 							Save
 						</Button>
@@ -240,7 +244,7 @@ function Teacher(props) {
 						<div className="p-16 sm:p-24 max-w-2xl">
 							{tabValue === 0 && (
 								<div>
-									{/*// <TextFieldFormsy
+									{/* // <TextFieldFormsy
 								// 	className="mt-8 mb-16"
 								// 	error={form.name === ''}
 								// 	required
@@ -255,18 +259,18 @@ function Teacher(props) {
 								// /> */}
                                     <p className="mt-8 mb-16">Submitted Answer</p>
 									<p className="mt-8 mb-16">Q1. What are arrays in C? Why are they so useful?</p>
-									{/*// <TextFieldFormsy
-									// 	className="mt-8 mb-16"
-									// 	id="answer"
-									// 	name="answer"
-									// 	label="Answer"
-									// 	type="text"
-									// 	value={product ? product.description : ""}
-									// 	multiline
-									// 	rows={5}
-									// 	variant="outlined"
-									// 	fullWidth
-									// />*/}
+									<TextFieldFormsy
+										className="mt-8 mb-16"
+										id="answer"
+										name="answer"
+										label="Answer"
+										type="text"
+										value={product ? product.description : ""}
+										multiline
+										rows={5}
+										variant="outlined"
+										fullWidth
+									/>
                                   {/*}   <TextFieldFormsy
 									// 	className="mt-8 mb-16"
 									// 	id="Required Keywords"
@@ -311,7 +315,7 @@ function Teacher(props) {
 								// />  */}
 								<p className="mt-8 mb-16">Add Keywords</p>
 								<FuseChipSelectFormsy
-									className="max-w-2xl"
+									className="w-full my-16"
 									// value={tags.map(item => ({
 									// 	value: item,
 									// 	label: item
