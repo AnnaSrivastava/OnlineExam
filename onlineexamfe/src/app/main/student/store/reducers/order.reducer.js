@@ -9,7 +9,7 @@ const orderReducer = (state = initialState, action) => {
 				...action.payload
 			};
 		}
-		case Actions.SAVE_ORDER: {
+		case Actions.SAVE_ANSWER: {
 			return {
 				...action.payload
 			};

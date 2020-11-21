@@ -13,6 +13,7 @@ app.use(cors());
 
 const PORT = process.env.PORT || 3001;
 let keywordsList = [];
+let answer="";
 app.listen(
 	PORT,
 	console.log(`Server running ${process.env.NODE_ENV} mode on ${PORT}`)
@@ -24,7 +25,9 @@ app.post("/keywordsList", (req, res) => {
 	return res.status(200).json("All OK");
 })
 app.post("/studentAnswer", (req, res) => {
-	const {answer} = req.body;
+	const {data} = req.body;
+	answer = data;
+	console.log(answer);
 	let wordsList = [], ignoreList=["the","a","an","and","it","his","with","to","of","is","was","","by","then","them","he","she","may"];
 	let score=0;
 	let j = 0;
@@ -54,8 +57,8 @@ app.post("/studentAnswer", (req, res) => {
         }
 	 }
 	 
-     score=(count/keywordsList.length)*maxScore;
-	 
+     score=Math.floor((count/keywordsList.length)*maxScore);
+	 console.log(score);
 	return res.status(200).json(wordsList);
 });
 //logging

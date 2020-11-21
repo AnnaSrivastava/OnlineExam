@@ -52,13 +52,15 @@ import reducer from './store/reducers';
 // 	}
 // }));
 
-function Product(props) {
+function Student(props) {
 	const dispatch = useDispatch();
 	const product = useSelector(({ eCommerceApp }) => eCommerceApp.product);
 	const theme = useTheme();
 
 	//const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
+	const [value, setValue] = useState("");
+	const answer="";
 	// const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
 	const [isFormValid, setIsFormValid] = useState(false);
@@ -85,9 +87,9 @@ function Product(props) {
 	function handleChangeTab(event, value) {
 		setTabValue(value);
 	}
-	// function disableButton() {
-	// 	setIsFormValid(true);
-	// }
+	function disableButton() {
+		setIsFormValid(true);
+	}
 
 	function enableButton() {
 		setIsFormValid(true);
@@ -135,8 +137,9 @@ function Product(props) {
 	// function canBeSubmitted() {
 	// 	//	return form.name.length > 0 && !_.isEqual(product.data, form);
 	// }
-	const submitData = model => {
-		dispatch(Actions.saveProduct(model));
+
+	const submitData = () => {
+		dispatch(Actions.saveAnswer(value));
 	};
 
 	if (
@@ -146,6 +149,10 @@ function Product(props) {
 		console.log(routeParams.productId);
 		return <FuseLoading />;
 	}
+
+	const handleChange = (event) => {
+		setValue(event.target.value);
+	};
 
 	return (
 		<FusePageCarded
@@ -206,7 +213,7 @@ function Product(props) {
 							color="secondary"
 							disabled={false}
 							//onClick={() => dispatch(Actions.saveProduct(product))}
-							onClick={() => { alert('Saved Successfully!') }}
+							onClick={()=>submitData()}
 						>
 							Save
 						</Button>
@@ -228,9 +235,7 @@ function Product(props) {
 			}
 			content={
 				product && (
-					<Formsy id="formsy" onValidSubmit={submitData} 
-					//onValid={enableButton} onInvalid={disableButton}
-					>
+					<Formsy id="formsy" onValidSubmit={submitData} onValid={enableButton} onInvalid={disableButton}>
 						<div className="p-16 sm:p-24 max-w-2xl">
 							{tabValue === 0 && (
 								<div>
@@ -254,7 +259,8 @@ function Product(props) {
 										name="answer"
 										label="Answer"
 										type="text"
-										value={product ? product.description : ""}
+										value={value}
+										onChange={handleChange}
 										multiline
 										rows={5}
 										variant="outlined"
@@ -348,4 +354,4 @@ function Product(props) {
 	);
 }
 
-export default withReducer('eCommerceApp', reducer)(Product);
+export default withReducer('eCommerceApp', reducer)(Student);
