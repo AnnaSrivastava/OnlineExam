@@ -12,14 +12,20 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 3001;
+let keywordsList = [];
 app.listen(
 	PORT,
 	console.log(`Server running ${process.env.NODE_ENV} mode on ${PORT}`)
 );
-app.post("/wordcount", (req, res) => {
+app.post("/keywordsList", (req, res) => {
+	const {data} = req.body;
+	keywordsList = data;
+	console.log(keywordsList);
+	return res.status(200).json("All OK");
+})
+app.post("/studentAnswer", (req, res) => {
 	const {answer} = req.body;
 	let wordsList = [], ignoreList=["the","a","an","and","it","his","with","to","of","is","was","","by","then","them","he","she","may"];
-	let keywordsList = [];
 	let score=0;
 	let j = 0;
 	for (let i = 0; i <= answer.length; i++) {
@@ -34,7 +40,9 @@ app.post("/wordcount", (req, res) => {
 	 	}
 	 }
 	 
-	 let count=0,score=0,maxScore=10;
+	 let count=0;
+	 score=0;
+	 let maxScore=10;
 
      for(let i = 0; i < keywordsList.length ; i++) {
         for(let j = 0; j < wordsList.length ; j++) {

@@ -136,8 +136,14 @@ function Teacher(props) {
 	function canBeSubmitted() {
 		//	return form.name.length > 0 && !_.isEqual(product.data, form);
 	}
-	const submitData = model => {
-		dispatch(Actions.saveProduct(model));
+	const submitData = () => {
+		let finalList = [];
+		for(let i=0;i<keywordsList.length;i++)
+		{
+			finalList.push(keywordsList[i].value);
+		}
+		console.log(finalList);
+		dispatch(Actions.saveKeywords(finalList));
 	};
 
 	if (
@@ -214,7 +220,7 @@ function Teacher(props) {
 							color="secondary"
 							disabled={false}
 							//onClick={() => dispatch(Actions.saveProduct(product))}
-							onClick={() => { alert('Saved Successfully!') }}
+							onClick={()=>submitData()}
 						>
 							Save
 						</Button>
@@ -318,7 +324,7 @@ function Teacher(props) {
 									// }))}
 									name = "Keywords"
 									options = {keywordsList}
-									onChange={value => handleChipChange(value)}
+									onChange={onChangeList}
 									TextFieldFormsyProps={{
 										label: 'Tags',
 										InputLabelProps: {

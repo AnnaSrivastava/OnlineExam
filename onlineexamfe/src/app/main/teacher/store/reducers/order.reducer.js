@@ -1,5 +1,4 @@
 import * as Actions from '../actions';
-
 const initialState = null;
 
 const orderReducer = (state = initialState, action) => {
@@ -9,7 +8,7 @@ const orderReducer = (state = initialState, action) => {
 				...action.payload
 			};
 		}
-		case Actions.SAVE_ORDER: {
+		case Actions.SAVE_KEYWORDS: {
 			return {
 				...action.payload
 			};
