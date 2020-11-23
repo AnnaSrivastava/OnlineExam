@@ -58,9 +58,9 @@ const useStyles = makeStyles(theme => ({
 
 function Teacher(props) {
 	const dispatch = useDispatch();
-	const product = useSelector(({ eCommerceApp }) => eCommerceApp.product);
+	const product = useSelector(({ studentStats }) => studentStats);
 	const theme = useTheme();
-
+	console.log(product);
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
 	const [keywordsList, setKeywordsList] = useState([]);
@@ -75,7 +75,7 @@ function Teacher(props) {
 			if (productId === 'new') {
 				dispatch(Actions.newProduct());
 			} else {
-				dispatch(Actions.getProduct(routeParams));
+				dispatch(Actions.getAnswerScore(routeParams));
 			}
 		}
 		updateProductState();
@@ -151,13 +151,13 @@ function Teacher(props) {
 		routeParams.productId !== 'new'
 	) {
 		console.log(routeParams.productId);
-		return <FuseLoading />;
+		//return <FuseLoading />;
 	}
 	const onChangeList = (arr) => {
-		console.log(arr);
+		//console.log(arr);
 		setKeywordsList(arr);
 	} 
-	console.log(keywordsList);
+	//console.log(keywordsList);
 	return (
 		<FusePageCarded
 			classes={{
@@ -267,11 +267,12 @@ function Teacher(props) {
 										name="answer"
 										label="Answer"
 										type="text"
-										value={product ? product.description : ""}
+										value={product.order ? product.order.answer : ""}
 										multiline
 										rows={5}
 										variant="outlined"
 										fullWidth
+										disabled
 									/>
                                   {/*}   <TextFieldFormsy
 									// 	className="mt-8 mb-16"
@@ -291,7 +292,7 @@ function Teacher(props) {
 										name="Score"
 										label="Score"
 										type="text"
-                                        value={product ? product.description : ""}
+                                        value={product.order ? product.order.score : ""}
 										rows={1}
 										variant="outlined"
                                         fullWidth
@@ -386,4 +387,4 @@ function Teacher(props) {
 	);
 }
 
-export default withReducer('eCommerceApp', reducer)(Teacher);
+export default withReducer('studentStats', reducer)(Teacher);
