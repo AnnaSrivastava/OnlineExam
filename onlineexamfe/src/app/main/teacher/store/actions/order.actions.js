@@ -9,7 +9,7 @@ const request = axios.get('http://localhost:3001/getAnswerScore', { params });
 	return dispatch =>
 		request.then(response =>
 		{
-			console.log(response.data);
+			//console.log(response.data);
 			dispatch({
 				type: GET_ANSWER,
 				payload: response.data

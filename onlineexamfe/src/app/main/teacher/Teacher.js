@@ -60,7 +60,7 @@ function Teacher(props) {
 	const dispatch = useDispatch();
 	const product = useSelector(({ studentStats }) => studentStats);
 	const theme = useTheme();
-	console.log(product);
+	//console.log(product);
 	const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
 	const [keywordsList, setKeywordsList] = useState([]);
@@ -150,7 +150,7 @@ function Teacher(props) {
 		(!product.data || (product.data && routeParams.productId !== product.data.id)) &&
 		routeParams.productId !== 'new'
 	) {
-		console.log(routeParams.productId);
+		//console.log(routeParams.productId);
 		//return <FuseLoading />;
 	}
 	const onChangeList = (arr) => {
@@ -259,8 +259,11 @@ function Teacher(props) {
 								// 	variant="outlined"
 								// 	fullWidth
 								// /> */}
-                                    <p className="mt-8 mb-16">Submitted Answer</p>
+							{(routeParams.productId==="new" ? <div></div> :
+                                    <p className="mt-8 mb-16">Submitted Answer</p> )}
 									<p className="mt-8 mb-16">Q1. What are arrays in C? Why are they so useful?</p>
+							{(routeParams.productId==="new" ? <div></div> :
+								<div>
 									<TextFieldFormsy
 										className="mt-8 mb-16"
 										id="answer"
@@ -298,7 +301,7 @@ function Teacher(props) {
                                         fullWidth
                                         disabled
 									/>
-
+								</div> )}
 								 {/*// 		<FuseChipSelectFormsy
 								// 	className="mt-8 mb-24"
 								// 	value={categories.map(item => ({
@@ -316,9 +319,11 @@ function Teacher(props) {
 								// 	}}
 								// 	isMulti
 								// />  */}
-								<p className="mt-8 mb-16">Add Keywords</p>
+								{(routeParams.productId==="new" ?
+									<div>
+								<p className="mt-8">Add Keywords</p>
 								<FuseChipSelectFormsy
-									className="w-full my-16"
+									className="w-full"
 									// value={tags.map(item => ({
 									// 	value: item,
 									// 	label: item
@@ -334,7 +339,9 @@ function Teacher(props) {
 										variant: 'outlined'
 									}}
 									isMulti
-								/> 
+								/>
+								</div>
+								: <div></div> )}
 								</div>
 							)}
 							{tabValue === 1 && (
