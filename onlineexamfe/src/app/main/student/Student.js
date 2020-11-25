@@ -60,7 +60,7 @@ function Student(props) {
 	//const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
 	const [value, setValue] = useState("");
-	const answer="";
+	//const answer="";
 	// const { form, handleChange, setForm } = useForm(null);
 	const routeParams = useParams();
 	const [isFormValid, setIsFormValid] = useState(false);
@@ -88,6 +88,7 @@ function Student(props) {
 		setTabValue(value);
 	}
 	function disableButton() {
+		console.log(isFormValid);
 		setIsFormValid(true);
 	}
 
