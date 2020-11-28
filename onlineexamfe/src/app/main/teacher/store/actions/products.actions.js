@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const GET_PRODUCTS = '[E-COMMERCE APP] GET PRODUCTS';
-export const SET_PRODUCTS_SEARCH_TEXT = '[E-COMMERCE APP] SET PRODUCTS SEARCH TEXT';
+export const GET_PRODUCTS = 'GET PRODUCTS';
+export const SET_PRODUCTS_SEARCH_TEXT = 'SET PRODUCTS SEARCH TEXT';
 
 export function getProducts() {
 	const request = axios.get('/api/e-commerce-app/products');

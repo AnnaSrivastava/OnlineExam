@@ -4,11 +4,11 @@ const initialState = null;
 
 const orderReducer = (state = initialState, action) => {
 	switch (action.type) {
-		case Actions.GET_ORDER: {
-			return {
-				...action.payload
-			};
-		}
+		// case Actions.GET_ORDER: {
+		// 	return {
+		// 		...action.payload
+		// 	};
+		// }
 		case Actions.SAVE_ANSWER: {
 			return {
 				...action.payload

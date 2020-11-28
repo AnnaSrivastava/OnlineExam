@@ -67,8 +67,8 @@ function Student(props) {
 
 	useDeepCompareEffect(() => {
 		function updateProductState() {
-			const { productId } = routeParams;
-			if (productId === 'new') {
+			const { sheetID } = routeParams;
+			if (sheetID === 'new') {
 				dispatch(Actions.newProduct());
 			} else {
 				dispatch(Actions.getProduct(routeParams));
@@ -144,10 +144,10 @@ function Student(props) {
 	};
 
 	if (
-		(!product.data || (product.data && routeParams.productId !== product.data.id)) &&
-		routeParams.productId !== 'new'
+		(!product.data || (product.data && routeParams.sheetID !== product.data.id)) &&
+		routeParams.sheetID !== 'new'
 	) {
-		console.log(routeParams.productId);
+		console.log(routeParams.sheetID);
 		return <FuseLoading />;
 	}
 

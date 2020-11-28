@@ -9,7 +9,6 @@ const request = axios.get('http://localhost:3001/getAnswerScore', { params });
 	return dispatch =>
 		request.then(response =>
 		{
-			//console.log(response.data);
 			dispatch({
 				type: GET_ANSWER,
 				payload: response.data
@@ -26,7 +25,6 @@ export function saveKeywords(data) {
 	return dispatch =>
 		request.then(response => {
 			dispatch(showMessage({ message: 'Keywords Saved' }));
-
 			return dispatch({
 				type: SAVE_KEYWORDS,
 				payload: response.data

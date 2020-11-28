@@ -62,7 +62,7 @@ function Teacher(props) {
 	const dispatch = useDispatch();
 	const product = useSelector(({ studentStats }) => studentStats);
 	const theme = useTheme();
-	//console.log(product);
+	console.log(product);
 	//const classes = useStyles(props);
 	const [tabValue, setTabValue] = useState(0);
 	const [keywordsList, setKeywordsList] = useState([]);
@@ -73,8 +73,8 @@ function Teacher(props) {
 
 	useDeepCompareEffect(() => {
 		function updateProductState() {
-			const { productId } = routeParams;
-			if (productId === 'new') {
+			const { sheetID } = routeParams;
+			if (sheetID === 'new') {
 				dispatch(Actions.newProduct());
 			} else {
 				dispatch(Actions.getAnswerScore(routeParams));
@@ -148,10 +148,10 @@ function Teacher(props) {
 	};
 
 	if (
-		(!product.data || (product.data && routeParams.productId !== product.data.id)) &&
-		routeParams.productId !== 'new'
+		(!product.data || (product.data && routeParams.sheetID !== product.data.id)) &&
+		routeParams.sheetID !== 'new'
 	) {
-		//console.log(routeParams.productId);
+		//console.log(routeParams.sheetID);
 		//return <FuseLoading />;
 	}
 	const onChangeList = (arr) => {
@@ -260,10 +260,10 @@ function Teacher(props) {
 								// 	variant="outlined"
 								// 	fullWidth
 								// /> */}
-							{(routeParams.productId==="new" ? <div></div> :
+							{(routeParams.sheetID==="new" ? <div></div> :
                                     <p className="mt-8 mb-16">Submitted Answer</p> )}
 									<p className="mt-8 mb-16">Q1. What are arrays in C? Why are they so useful?</p>
-							{(routeParams.productId==="new" ? <div></div> :
+							{(routeParams.sheetID==="new" ? <div></div> :
 								<div>
 									<TextFieldFormsy
 										className="mt-8 mb-16"
@@ -320,7 +320,7 @@ function Teacher(props) {
 								// 	}}
 								// 	isMulti
 								// />  */}
-								{(routeParams.productId==="new" ?
+								{(routeParams.sheetID==="new" ?
 									<div>
 								<p className="mt-8">Add Keywords</p>
 								<FuseChipSelectFormsy
