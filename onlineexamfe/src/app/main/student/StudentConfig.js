@@ -1,7 +1,7 @@
 import React from 'react';
 // import { Redirect } from 'react-router-dom';
 
-const ECommerceAppConfig = {
+const StudentConfig = {
 	settings: {
 		layout: {}
 	},
@@ -30,4 +30,4 @@ const ECommerceAppConfig = {
 	]
 };
 
-export default ECommerceAppConfig;
+export default StudentConfig;
