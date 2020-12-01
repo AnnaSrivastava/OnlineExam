@@ -14,10 +14,7 @@ import { Button,
 import { TextFieldFormsy, FuseChipSelectFormsy } from '@fuse/core/formsy';
 import Typography from '@material-ui/core/Typography';
 import withReducer from 'app/store/withReducer';
-// import clsx from 'clsx';
-import React, { 
-	//useEffect,
-	 useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import * as Actions from './store/actions';
