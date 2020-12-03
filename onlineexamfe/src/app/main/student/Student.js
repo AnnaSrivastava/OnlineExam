@@ -67,9 +67,9 @@ function Student(props) {
 
 	useDeepCompareEffect(() => {
 		function updateProductState() {
-			const { sheetID } = routeParams;
-			if (sheetID === 'new') {
-				dispatch(Actions.newProduct());
+			const { productID } = routeParams;
+			if (productID === 'new') {
+				//dispatch(Actions.newProduct());
 			} else {
 				dispatch(Actions.getProduct(routeParams));
 			}
@@ -144,11 +144,11 @@ function Student(props) {
 	};
 
 	if (
-		(!product.data || (product.data && routeParams.sheetID !== product.data.id)) &&
-		routeParams.sheetID !== 'new'
+		(!product.data || (product.data && routeParams.productID !== product.data.id)) &&
+		routeParams.productID !== 'new'
 	) {
-		console.log(routeParams.sheetID);
-		return <FuseLoading />;
+		// console.log(routeParams.productID);
+		// return <FuseLoading />;
 	}
 
 	const handleChange = (event) => {

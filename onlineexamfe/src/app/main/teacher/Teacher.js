@@ -211,6 +211,8 @@ function Teacher(props) {
 							</div>
 						</div>
 					</div>
+				{(routeParams.sheetID==="new" ?
+
 					<FuseAnimate animation="transition.slideRightIn" delay={300}>
 						<Button
 							className="whitespace-no-wrap normal-case"
@@ -223,6 +225,7 @@ function Teacher(props) {
 							Save
 						</Button>
 					</FuseAnimate>
+				: <div></div> )}
 				</div>
 			}
 			contentToolbar={
@@ -289,11 +292,11 @@ function Teacher(props) {
 									// /> */}
                                     <TextFieldFormsy
 										className="mt-8 mb-16"
-										id="Score"
-										name="Score"
+										id="score"
+										name="score"
 										label="Score"
 										type="text"
-                                        value={product.order ? product.order.score : ""}
+                                        value={product.order ? product.order.score : 0}
 										rows={1}
 										variant="outlined"
                                         fullWidth
