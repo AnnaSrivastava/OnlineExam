@@ -219,7 +219,6 @@ function Teacher(props) {
 							variant="contained"
 							color="secondary"
 							disabled={false}
-							//onClick={() => dispatch(Actions.saveProduct(product))}
 							onClick={()=>submitData()}
 						>
 							Save
