@@ -1,6 +1,6 @@
 import FuseAnimate from '@fuse/core/FuseAnimate';
 // import FuseChipSelect from '@fuse/core/FuseChipSelect';
-import FuseLoading from '@fuse/core/FuseLoading';
+//import FuseLoading from '@fuse/core/FuseLoading';
 import FusePageCarded from '@fuse/core/FusePageCarded';
 import { useDeepCompareEffect } from '@fuse/hooks';
 // import FuseUtils from '@fuse/utils';

@@ -10,9 +10,9 @@ import * as Actions from "../store/actions";
 
 function OperatorHeader(props) {
 	const dispatch = useDispatch();
-	const searchText = useSelector(
-		({ Operators }) => Operators.operators_list.searchText
-	);
+	const searchText = "";//useSelector(
+	// 	({ Operators }) => Operators.operators_list.searchText
+	// );
 	const mainTheme = useSelector(({ fuse }) => fuse.settings.mainTheme);
 
 	return (
