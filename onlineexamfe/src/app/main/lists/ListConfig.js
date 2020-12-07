@@ -1,5 +1,5 @@
 import React from "react";
-const ListsConfig = {
+const ListConfig = {
 	settings: {
 		layout: {}
 	},
@@ -53,4 +53,4 @@ export const AdminNavConfig = {
 	]
 };
 
-export default ListsConfig;
+export default ListConfig;

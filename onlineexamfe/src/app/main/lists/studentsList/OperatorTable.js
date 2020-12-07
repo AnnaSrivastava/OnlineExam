@@ -14,7 +14,8 @@ import OperatorTableHead from "./OperatorTableHead";
 
 function OperatorTable(props) {
 	const dispatch = useDispatch();
-	const Operator = useSelector(({ Operators }) => Operators.operators_list.data);
+	const Operator = [{id:41816401517, name:"Ananya Srivastava", batch:"IT-2021", subject:"Introduction To C", marks:66},
+			{id:2216401219, name:"Some Random", batch:"CSE-2023", subject:"Web Development", marks:89}];//useSelector(({ Operators }) => Operators.operators_list.data);
 	const searchText = useSelector(({ Operators }) => Operators.operators_list.searchText);
 
 	const [selected, setSelected] = useState([]);
@@ -26,9 +27,9 @@ function OperatorTable(props) {
 		id: null
 	});
 
-	useEffect(() => {
-		dispatch(Actions.getOperators());
-	}, [dispatch]);
+	// useEffect(() => {
+	// 	dispatch(Actions.getOperators());
+	// }, [dispatch]);
 
 	useEffect(() => {
 		if (searchText.length !== 0) {
@@ -111,16 +112,19 @@ function OperatorTable(props) {
 										key={n.id}
 										selected={isSelected}>
 										<TableCell component="th" scope="row">
-											{n.first_name}
+											{n.id}
 										</TableCell>
 										<TableCell component="th" scope="row">
-											{n.last_name}
+											{n.name}
 										</TableCell>
 										<TableCell component="th" scope="row">
-											{n.email}
+											{n.batch}
 										</TableCell>
 										<TableCell component="th" scope="row">
-											{n.phone_number}
+											{n.subject}
+										</TableCell>
+										<TableCell component="th" scope="row">
+											{n.marks}
 										</TableCell>
 										{/* <TableCell component="th" scope="row" align="right">
 											<span>$</span>
@@ -139,9 +143,9 @@ function OperatorTable(props) {
 											/>
 										</TableCell> */}
 
-										<TableCell component="th" scope="row" align="center">
+										{/*<TableCell component="th" scope="row" align="center">
 											{n.active ? <Icon className="text-green text-20">check_circle</Icon> : <Icon className="text-red text-20">remove_circle</Icon>}
-										</TableCell>
+										</TableCell>*/}
 									</TableRow>
 								);
 							})}

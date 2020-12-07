@@ -10,39 +10,39 @@ import Tooltip from "@material-ui/core/Tooltip";
 
 const rows = [
 	{
-		id: "username",
+		id: "id",
 		align: "left",
 		disablePadding: false,
-		label: "First Name",
+		label: "ENR",
 		sort: true
 	},
 	{
-		id: "lastname",
+		id: "name",
 		align: "left",
 		disablePadding: false,
-		label: "Last Name",
+		label: "Name",
 		sort: true
 	},
 
 	{
-		id: "email",
+		id: "batch",
 		align: "left",
 		disablePadding: false,
-		label: "Email",
+		label: "Batch",
 		sort: true
 	},
 	{
-		id: "phone",
+		id: "subject",
 		align: "left",
 		disablePadding: false,
-		label: "Phone Number",
+		label: "Subject",
 		sort: true
 	},
 	{
-		id: "active",
+		id: "marks",
 		align: "left",
 		disablePadding: false,
-		label: "Active",
+		label: "Marks",
 		sort: true
 	}
 ];

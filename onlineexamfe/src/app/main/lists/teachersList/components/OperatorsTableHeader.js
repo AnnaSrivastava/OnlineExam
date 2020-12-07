@@ -3,69 +3,55 @@ import { TableCell, TableHead, TableRow, Tooltip, TableSortLabel } from "@materi
 import React from "react";
 
 const rows = [
+	 {
+	 	id: "id",
+	 	align: "left",
+	 	disablePadding: false,
+	 	label: "ID",
+	 	sort: true
+	 },
+	{
+		id: "name",
+		align: "left",
+		disablePadding: false,
+		label: "Name",
+		sort: true
+	},
+	{
+		id: "subject",
+		align: "left",
+		disablePadding: false,
+		label: "Subject",
+		sort: true
+	},
+	{
+		id: "marks",
+		align: "left",
+		disablePadding: false,
+		label: "Your Marks",
+		sort: true
+	},
 	// {
-	// 	id: "id",
+	// 	id: "city",
 	// 	align: "left",
 	// 	disablePadding: false,
-	// 	label: "ID",
+	// 	label: "City",
 	// 	sort: true
 	// },
-	{
-		id: "username",
-		align: "left",
-		disablePadding: false,
-		label: "First Name",
-		sort: true
-	},
-	{
-		id: "lastname",
-		align: "left",
-		disablePadding: false,
-		label: "Last Name",
-		sort: true
-	},
-	{
-		id: "email",
-		align: "left",
-		disablePadding: false,
-		label: "Email",
-		sort: true
-	},
-	{
-		id: "team",
-		align: "left",
-		disablePadding: false,
-		label: "Team",
-		sort: true
-	},
-	{
-		id: "phone",
-		align: "left",
-		disablePadding: false,
-		label: "Phone Number",
-		sort: true
-	},
-	{
-		id: "city",
-		align: "left",
-		disablePadding: false,
-		label: "City",
-		sort: true
-	},
-	{
-		id: "active",
-		align: "left",
-		disablePadding: false,
-		label: "Active",
-		sort: true
-	},
-	{
-		id: "button",
-		align: "left",
-		disablePadding: false,
-		label: "",
-		sort: true
-	}
+	// {
+	// 	id: "active",
+	// 	align: "left",
+	// 	disablePadding: false,
+	// 	label: "Active",
+	// 	sort: true
+	// },
+	// {
+	// 	id: "button",
+	// 	align: "left",
+	// 	disablePadding: false,
+	// 	label: "",
+	// 	sort: true
+	// }
 ];
 
 function OperatorTableHeader(props) {

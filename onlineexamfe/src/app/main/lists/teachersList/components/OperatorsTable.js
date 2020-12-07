@@ -37,7 +37,8 @@ const useStyles = makeStyles({
 function OperatorsTable(props) {
 	const classes = useStyles();
 	const dispatch = useDispatch();
-	const operatorDetails = useSelector(({ Operators }) => Operators.operators_list.data);
+	const operatorDetails = [{ id:101, name:"Dr. Rahul Johari", subject:"Introduction To C", marks:63},
+							{ id:104, name:"Dr. Sartaj Sodhi", subject:"Computer Graphics", marks:77}]//useSelector(({ Operators }) => Operators.operators_list.data);
 	const searchText = useSelector(({ Operators }) => Operators.operators_list.searchText);
 
 	const [selected, setSelected] = useState([]);
@@ -52,9 +53,9 @@ function OperatorsTable(props) {
 		direction: "asc",
 		id: null
 	});
-	const isAuthenticate = useSelector(({ auth }) => {
-		return auth.user.isAuthenticate;
-	});
+	// const isAuthenticate = useSelector(({ auth }) => {
+	// 	return auth.user.isAuthenticate;
+	// });
 	function objToString(object) {
 		var str = "";
 		for (var k in object) {
@@ -64,14 +65,14 @@ function OperatorsTable(props) {
 		}
 		return str;
 	}
-	useEffect(() => {
-		if (isAuthenticate) {
-			dispatch(Actions.getOperators());
-		} else {
-			props.history.push("/login");
-		}
-		// eslint-disable-next-line
-	}, []);
+	// useEffect(() => {
+	// 	if (isAuthenticate) {
+	// 		dispatch(Actions.getOperators());
+	// 	} else {
+	// 		props.history.push("/login");
+	// 	}
+	// 	// eslint-disable-next-line
+	// }, []);
 
 	useEffect(() => {
 		if (searchText.length !== 0) {
@@ -89,6 +90,8 @@ function OperatorsTable(props) {
 		if (order.id === property && order.direction === "desc") {
 			direction = "asc";
 		}
+		else
+		  {	direction ="desc"; }
 
 		setOrder({
 			direction,
@@ -184,26 +187,26 @@ function OperatorsTable(props) {
 											key={n.id}
 											selected={isSelected}
 											onClick={(event) => handleClick(n)}>
-											{/* <TableCell component="th" scope="row" align="left">
+											<TableCell component="th" scope="row" align="left">
 												{n.id}
-											</TableCell> */}
+											</TableCell> 
 
 											<TableCell component="th" scope="row">
-												{n.first_name}
+												{n.name}
 											</TableCell>
 											<TableCell component="th" scope="row">
-												{n.last_name}
-											</TableCell>
-											<TableCell component="th" scope="row">
+											 	{n.subject}
+											</TableCell> 
+											{/*<TableCell component="th" scope="row">
 												{n.email}
 											</TableCell>
 											<TableCell component="th" scope="row">
 												{n.team_name ? n.team_name : "none"}
-											</TableCell>
+											</TableCell>*/}
 											<TableCell component="th" scope="row">
-												{n.phone_number}
+												{n.marks}
 											</TableCell>
-											<TableCell component="th" scope="row">
+											{/*<TableCell component="th" scope="row">
 												{n.city}
 											</TableCell>
 											<TableCell component="th" scope="row" align="left">
@@ -254,7 +257,7 @@ function OperatorsTable(props) {
 														</DialogActions>
 													</Dialog>
 												</Button>
-											</TableCell>
+											</TableCell>*/}
 										</TableRow>
 									);
 								})}

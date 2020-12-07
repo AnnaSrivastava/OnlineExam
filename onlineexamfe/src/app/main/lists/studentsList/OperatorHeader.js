@@ -26,7 +26,7 @@ function OperatorHeader(props) {
 						className="hidden sm:flex mx-0 sm:mx-12"
 						variant="h6"
 					>
-						Operators
+						Students
 					</Typography>
 				</FuseAnimate>
 			</div>
