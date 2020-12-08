@@ -1,19 +1,21 @@
 import FuseScrollbars from "@fuse/core/FuseScrollbars";
 import _ from "@lodash";
-import Icon from "@material-ui/core/Icon";
+// import Icon from "@material-ui/core/Icon";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { 
+	// useDispatch, 
+	useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import * as Actions from "../store/actions";
+// import * as Actions from "../store/actions";
 import OperatorTableHead from "./OperatorTableHead";
 
 function OperatorTable(props) {
-	const dispatch = useDispatch();
+	// const dispatch = useDispatch();
 	const Operator = [{id:41816401517, name:"Ananya Srivastava", batch:"IT-2021", subject:"Introduction To C", marks:66},
 			{id:2216401219, name:"Some Random", batch:"CSE-2023", subject:"Web Development", marks:89}];//useSelector(({ Operators }) => Operators.operators_list.data);
 	const searchText = useSelector(({ Operators }) => Operators.operators_list.searchText);
