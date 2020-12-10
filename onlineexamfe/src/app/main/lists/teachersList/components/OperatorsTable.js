@@ -2,25 +2,27 @@ import React, { useEffect, useState } from "react";
 import _ from "@lodash";
 //material-ui & fuse
 import {
-	Icon,
-	Button,
-	Dialog,
-	DialogTitle,
-	DialogContent,
-	DialogActions,
+	// Icon,
+	// Button,
+	// Dialog,
+	// DialogTitle,
+	// DialogContent,
+	// DialogActions,
 	makeStyles,
 	Table,
 	TableContainer,
 	TableBody,
 	TableCell,
-	Tooltip,
+	//Tooltip,
 	TableRow,
 	TablePagination
 } from "@material-ui/core";
 import FuseScrollbars from "@fuse/core/FuseScrollbars";
 //redux
-import { useDispatch, useSelector } from "react-redux";
-import * as Actions from "../../store/actions";
+import { 
+	//useDispatch,
+	useSelector } from "react-redux";
+//import * as Actions from "../../store/actions";
 //router
 import { withRouter } from "react-router-dom";
 
@@ -36,7 +38,7 @@ const useStyles = makeStyles({
 });
 function OperatorsTable(props) {
 	const classes = useStyles();
-	const dispatch = useDispatch();
+	//const dispatch = useDispatch();
 	const operatorDetails = [{ id:101, name:"Dr. Rahul Johari", subject:"Introduction To C", marks:63},
 							{ id:104, name:"Dr. Sartaj Sodhi", subject:"Computer Graphics", marks:77}]//useSelector(({ Operators }) => Operators.operators_list.data);
 	const searchText = useSelector(({ Operators }) => Operators.operators_list.searchText);
@@ -44,10 +46,10 @@ function OperatorsTable(props) {
 	const [selected, setSelected] = useState([]);
 	const [data, setData] = useState(operatorDetails);
 	const [page, setPage] = useState(0);
-	const [statusData, setStatusData] = useState({});
-	const [AOid, setAOid] = useState(0);
-	const [open, setOpen] = React.useState(false);
-	const [open1, setOpen1] = React.useState(false);
+	//const [statusData, setStatusData] = useState({});
+	//const [AOid, setAOid] = useState(0);
+	//const [open, setOpen] = React.useState(false);
+	//const [open1, setOpen1] = React.useState(false);
 	const [rowsPerPage, setRowsPerPage] = useState(10);
 	const [order, setOrder] = useState({
 		direction: "asc",
@@ -114,36 +116,36 @@ function OperatorsTable(props) {
 	function handleChangePage(event, value) {
 		setPage(value);
 	}
-	const handleCancel = () => {
-		setOpen(false);
-	};
-	const handleCancel1 = () => {
-		setOpen1(false);
-	};
-	const handleOk = () => {
-		setOpen(false);
-		dispatch(Actions.changeAOstatus(AOid, { ...statusData }));
-	};
-	const handleOk1 = () => {
-		setOpen1(false);
-		dispatch(Actions.deleteOperator(AOid));
-	};
+	// const handleCancel = () => {
+	// 	setOpen(false);
+	// };
+	// const handleCancel1 = () => {
+	// 	setOpen1(false);
+	// };
+	// const handleOk = () => {
+	// 	setOpen(false);
+	// 	dispatch(Actions.changeAOstatus(AOid, { ...statusData }));
+	// };
+	// const handleOk1 = () => {
+	// 	setOpen1(false);
+	// 	dispatch(Actions.deleteOperator(AOid));
+	// };
 	function handleChangeRowsPerPage(event) {
 		setRowsPerPage(event.target.value);
 	}
-	function handleDeleteRow(event, id) {
-		event.stopPropagation();
-	}
-	const deleteOperator = (event, n) => {
-		//event.stopPropagation();
-		setAOid(n.id);
-		setOpen1(true);
-	};
-	const toggleChecked = (event, n) => {
-		setAOid(n.id);
-		setStatusData({ ...n, is_active: !n.is_active });
-		setOpen(true);
-	};
+	// function handleDeleteRow(event, id) {
+	// 	event.stopPropagation();
+	// }
+	// const deleteOperator = (event, n) => {
+	// 	//event.stopPropagation();
+	// 	setAOid(n.id);
+	// 	setOpen1(true);
+	// };
+	// const toggleChecked = (event, n) => {
+	// 	setAOid(n.id);
+	// 	setStatusData({ ...n, is_active: !n.is_active });
+	// 	setOpen(true);
+	// };
 	return (
 		<div className="w-full flex flex-col">
 			<FuseScrollbars className="flex-grow">
