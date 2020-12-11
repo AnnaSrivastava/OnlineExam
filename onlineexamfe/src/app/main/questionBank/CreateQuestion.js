@@ -7,7 +7,9 @@ import { useDeepCompareEffect } from '@fuse/hooks';
 // import FuseUtils from '@fuse/utils';
 import Formsy from 'formsy-react';
 import _ from '@lodash';
-import { useTheme, Icon, Button, Tab, Tabs, Radio, InputLabel, Select, MenuItem, OutlinedInput, RadioGroup, Typography, FormControlLabel, FormControl, FormLabel } from '@material-ui/core';
+import { useTheme, Icon, Button, 
+	//Tab, Tabs, 
+	Radio, InputLabel, Select, MenuItem, OutlinedInput, RadioGroup, Typography, FormControlLabel, FormControl, FormLabel } from '@material-ui/core';
 import { TextFieldFormsy } from '@fuse/core/formsy';
 import withReducer from 'app/store/withReducer';
 // import clsx from 'clsx';
@@ -92,9 +94,9 @@ function CreateQuestion(props) {
 	function handleSelectedCategory(event) {
 		setSelectedCategory(event.target.value);
 	}
-	function handleChangeTab(event, value) {
-		setTabValue(value);
-	}
+	// function handleChangeTab(event, value) {
+	// 	setTabValue(value);
+	// }
 	function disableButton() {
 		console.log(isFormValid);
 		setIsFormValid(true);
@@ -222,7 +224,8 @@ function CreateQuestion(props) {
 							color="secondary"
 							disabled={false}
 							onClick={() => dispatch(Actions.saveProduct(product))}
-							onClick={()=>submitData()}
+							//onClick={()=>submitData()
+								//}
 						>
 							Save
 						</Button>
