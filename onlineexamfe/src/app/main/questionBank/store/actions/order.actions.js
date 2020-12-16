@@ -1,5 +1,5 @@
 import { showMessage } from 'app/store/actions/fuse';
-import axios from 'axios';
+// import axios from 'axios';
 
 export const GET_ORDER = 'GET ORDER';
 export const SAVE_ANSWER = 'SAVE ANSWER';
@@ -17,9 +17,9 @@ export const SAVE_ANSWER = 'SAVE ANSWER';
 // }
 
 export function saveAnswer(data) {
-	const request = axios.post("http://localhost:3001/studentAnswer", {
-		data
-	});
+	// const request = axios.post("http://localhost:3001/studentAnswer", {
+	// 	data
+	// });
 
 	return dispatch =>
 		//request.then(response =>
