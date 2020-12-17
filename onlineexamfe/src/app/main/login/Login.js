@@ -10,6 +10,11 @@ import CardContent from "@material-ui/core/CardContent";
 import { makeStyles } from "@material-ui/core/styles";
 import { darken } from "@material-ui/core/styles/colorManipulator";
 import Typography from "@material-ui/core/Typography";
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 
 // components
 import LoginForm from "./LoginForm";
@@ -22,8 +27,17 @@ const useStyles = makeStyles((theme) => ({
 	}
 }));
 
+
+
 function Login() {
 	const classes = useStyles();
+    const [value, setValue] = React.useState('female');
+  
+	const handleChange = (event) => {
+	  setValue(event.target.value);
+	};
+
+ 
 
 	return (
 		<div className={clsx(classes.root, "flex flex-col flex-auto flex-shrink-0 p-24 h-full md:flex-row md:p-0")}>
@@ -34,14 +48,13 @@ function Login() {
 
 				<FuseAnimate animation="transition.slideUpIn" delay={300}>
 					<Typography variant="h4" color="inherit" className="font-light">
-						Welcome to Online Assessment!
+						Welcome to Online Assessment !
 					</Typography>
 				</FuseAnimate>
 
 				<FuseAnimate delay={400}>
 					<Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nulla velit, sit amet finibus neque condimentum eget. Maecenas sodales, dui a pharetra…
-
+					Ultimate destination for auto grading online theory exams with ease and simplifying the assessment cycle.
 					</Typography>
 				</FuseAnimate>
 			</div>
@@ -50,9 +63,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nulla veli
 				<Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
 					<CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
 						<Typography variant="h6" className="md:w-full mb-32">
-							LOGIN TO YOUR ACCOUNT
+						LOGIN TO YOUR ACCOUNT
 						</Typography>
-
+                        <FormControl component="fieldset">
+                          <RadioGroup aria-label="user" name="user" value={value} onChange={handleChange} row>
+                            <FormControlLabel value="student" control={<Radio />} label="Student" />
+                            <FormControlLabel value="teacher" control={<Radio />} label="Teacher" />
+                          </RadioGroup>
+                        </FormControl>
+						<Typography variant="h6" className="md:w-full mb-32">
+						
+						</Typography>
 						<LoginForm />
 
 						{/*<div className='my-24 flex items-center justify-center'>
@@ -74,5 +95,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan nulla veli
 		</div>
 	);
 }
+
 
 export default Login;

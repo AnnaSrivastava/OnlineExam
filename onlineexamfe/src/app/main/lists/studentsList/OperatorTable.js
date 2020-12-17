@@ -17,7 +17,7 @@ import OperatorTableHead from "./OperatorTableHead";
 function OperatorTable(props) {
 	// const dispatch = useDispatch();
 	const Operator = [{id:41816401517, name:"Ananya Srivastava", batch:"IT-2021", subject:"Introduction To C", marks:66},
-			{id:2216401219, name:"Some Random", batch:"CSE-2023", subject:"Web Development", marks:89}];//useSelector(({ Operators }) => Operators.operators_list.data);
+			{id:42316401517, name:"Anushka Sharma", batch:"IT-2021", subject:"Web Development", marks:89}];//useSelector(({ Operators }) => Operators.operators_list.data);
 	const searchText = useSelector(({ Operators }) => Operators.operators_list.searchText);
 
 	const [selected, setSelected] = useState([]);
