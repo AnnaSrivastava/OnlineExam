@@ -19,7 +19,7 @@ export function getProduct(params) {
 
 export function saveProduct(data) {
 
-	const request = axios.post('/api/e-commerce-app/product/save', data);
+	//const request = axios.post('/api/e-commerce-app/product/save', data);
 
 	return dispatch =>
 		// request.then(response => 
