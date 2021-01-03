@@ -61,7 +61,7 @@ export default function LoginForm(props) {
 		}
 		else
 		{
-			history.push("/question/new")
+			history.push("/assignments")
 		}
 	}
 

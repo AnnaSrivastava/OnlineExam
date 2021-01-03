@@ -65,12 +65,7 @@ function Login() {
 						<Typography variant="h6" className="md:w-full mb-32">
 						LOGIN TO YOUR ACCOUNT
 						</Typography>
-                        <FormControl component="fieldset">
-                          <RadioGroup aria-label="user" name="user" value={value} onChange={handleChange} row>
-                            <FormControlLabel value="student" control={<Radio />} label="Student" />
-                            <FormControlLabel value="teacher" control={<Radio />} label="Teacher" />
-                          </RadioGroup>
-                        </FormControl>
+                        
 						<Typography variant="h6" className="md:w-full mb-32">
 						
 						</Typography>
