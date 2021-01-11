@@ -106,14 +106,13 @@ function Assignments(props) {
 			>
 				<FuseAnimate animation="transition.slideUpIn" duration={400} delay={100}>
 					<Typography color="inherit" className="text-24 sm:text-40 font-light">
-						WELCOME TO ACADEMY
+						WELCOME TO ASSESSMENTS
 					</Typography>
 				</FuseAnimate>
 				<FuseAnimate duration={400} delay={600}>
 					<Typography variant="subtitle1" color="inherit" className="mt-8 sm:mt-16 mx-auto max-w-512">
 						<span className="opacity-75">
-							Our courses will step you through the process of building a small application, or adding a
-							new feature to an existing application.
+					
 						</span>
 					</Typography>
 				</FuseAnimate>
@@ -228,11 +227,51 @@ function Assignments(props) {
 								})}
 							</FuseAnimateGroup>
 						) : (
-							<div className="flex flex-1 items-center justify-center">
-								<Typography color="textSecondary" className="text-24 my-24">
-									No courses found!
-								</Typography>
+							<div div className="w-full pb-24 sm:w-1/2 lg:w-1/3 sm:p-16">
+							
+								<Card elevation={1} className="flex flex-col h-256" >
+												<div
+													className="flex flex-shrink-0 items-center justify-between px-24 h-64" style={{flex:1, backgroundColor:'lightblue'}}
+													
+												>
+													<Typography className="font-medium truncate" >
+														Programming
+													</Typography>
+													<div className="flex items-center justify-center opacity-75">
+														<Icon className="text-20 mx-8" color="inherit">
+															access_time
+														</Icon>
+														<div className="text-16 whitespace-no-wrap">
+															120
+															min
+														</div>
+													</div>
+												</div>
+												<CardContent className="flex flex-col flex-auto items-center justify-center">
+													<Typography className="text-center text-16 font-400">
+														Introduction to C
+													</Typography>
+													<Typography
+														className="text-center text-13 font-600 mt-4"
+														color="textSecondary"
+													>
+														18 January, 2021
+													</Typography>
+												</CardContent>
+												<Divider />
+												<CardActions className="justify-center">
+													
+												</CardActions>
+												<LinearProgress
+													className="w-full"
+													variant="determinate"
+													//value={(course.activeStep * 100) / course.totalSteps}
+													color="secondary"
+												/>
+											</Card>
+											
 							</div>
+							
 						)),
 					[categories, filteredData, theme.palette]
 				)}
